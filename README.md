@@ -1,32 +1,35 @@
-# GitHub Fork Deleter
+# Manage GitHub with Python
 
-This project provides a simple Python script to delete forked repositories from your GitHub account using the GitHub API.
+>This project demonstrates how to manage your GitHub repositories programmatically using Python and the GitHub API.
 
 ## Features
-- Delete multiple forked repositories in bulk
-- Uses GitHub API for secure and automated deletion
-- Customizable list of repositories to delete
+- Delete repositories (including forked repos) in bulk
+- Easily customize which repositories to manage
+- Secure authentication using environment variables
+- Foundation for automating other GitHub tasks (extend as needed)
 
 ## Requirements
-- Python 3.8+
+- Python 3.8 or higher
 - `requests` library
 - (Optional) `python-dotenv` for loading environment variables from a `.env` file
 
 ## Setup
 1. **Clone this repository**
-2. **Install dependencies:**
+2. **Install [uv](https://github.com/astral-sh/uv) (if not already installed):**
    ```bash
-   pip install -r requirements.txt
+   pip install uv
    ```
-   Or manually:
+3. **Install dependencies with uv:**
    ```bash
-   pip install requests python-dotenv
+   uv pip install -r requirements.txt
+   # or, to use pyproject.toml/uv.lock:
+   uv pip install --all-extras .
    ```
-3. **Create a `.env` file** in the project root with your GitHub personal access token:
+4. **Create a `.env` file** in the project root:
    ```env
    GITHUB_ACCESS_TOKEN=your_github_token_here
    ```
-   - The token must have `delete_repo` and `repo` permissions.
+   - Your token must have `delete_repo` and `repo` permissions.
 
 ## Usage
 1. Edit `main.py` and update the `repos_to_delete` list with the repositories you want to delete (format: `username/repo`).
@@ -36,8 +39,17 @@ This project provides a simple Python script to delete forked repositories from 
    ```
 3. The script will attempt to delete each listed repository and print the result.
 
+## Extending
+This project is a starting point for managing GitHub with Python. You can extend it to:
+- List all your repositories
+- Archive or unarchive repositories
+- Update repository settings
+- Manage issues, pull requests, and more
+
+See the [GitHub REST API documentation](https://docs.github.com/en/rest) for more ideas.
+
 ## Safety
-- **Be careful!** Deleting a repository is permanent and cannot be undone.
+- **Warning:** Deleting a repository is permanent and cannot be undone.
 - The script only deletes repositories listed in `repos_to_delete`.
 
 ## License
