@@ -13,13 +13,7 @@ USERNAME = os.getenv("USERNAME")
 URL = f"https://api.github.com/users/{USERNAME}/repos"
 
 repos_to_delete = [
-    "mohdvasm/Statistics-Books",
-    "mohdvasm/TensorflowKeras-ReinforcementLearning",
-    "mohdvasm/The-Ultimate-C-Programming-Course",
-    "mohdvasm/Transformers-Materials-KN",
-    "mohdvasm/unsloth",
-    "mohdvasm/VGGnet-face-recognition",
-    "mohdvasm/vlms-zero-to-hero",
+    "repo/name/to/delete"
 ]
 
 
@@ -60,6 +54,6 @@ if __name__ == "__main__":
     # print(list_forked_repos())
 
     # Delete repos
-    delete_forked_repos(
-        repos_to_delete
-    )
+    # delete_forked_repos(
+    #     repos_to_delete
+    # )
